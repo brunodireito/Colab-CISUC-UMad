@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.0),
-    on Mon Apr 27 10:49:41 2026
+    on Mon Apr 27 11:31:08 2026
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -132,7 +132,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/brunomiguel/Documents/Psychopy/demo_lastrun.py',
+        originPath='/Users/brunomiguel/Documents/GitHub/Colab-CISUC-UMad/demo_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -426,7 +426,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Video" ---
     movie = visual.MovieStim(
         win, name='movie',
-        filename='resources/videos/Clip 1 - PsychoPY.mp4', movieLib='ffpyplayer',
+        filename=None, movieLib='ffpyplayer',
         loop=False, volume=1.0, noAudio=False,
         pos=(0, 0), size=(1, 1), units=win.units,
         ori=0.0, anchor='center',opacity=None, contrast=1.0,
@@ -808,11 +808,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # set up handler to look after randomisation of conditions etc
     trials = data.TrialHandler2(
         name='trials',
-        nReps=2, 
+        nReps=3, 
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=[None], 
+        trialList=data.importConditions('selector.csv'), 
         seed=None, 
         isTrials=True, 
     )
@@ -976,6 +976,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         Video.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
+        movie.setMovie(videos)
         # store start times for Video
         Video.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         Video.tStart = globalClock.getTime(format='float')
@@ -1247,7 +1248,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trials.status = STARTED
         thisExp.nextEntry()
         
-    # completed 2 repeats of 'trials'
+    # completed 3 repeats of 'trials'
     trials.status = FINISHED
     
     if thisSession is not None:

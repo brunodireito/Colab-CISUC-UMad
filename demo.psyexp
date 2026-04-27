@@ -288,7 +288,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="False" valType="bool" updates="None" name="loop"/>
-        <Param val="resources/videos/Clip 1 - PsychoPY.mp4" valType="file" updates="constant" name="movie"/>
+        <Param val="$videos" valType="file" updates="set every repeat" name="movie"/>
         <Param val="movie" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
@@ -377,12 +377,12 @@
     <Routine name="Cues"/>
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('videos', './resources/videos/Clip 1 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 2 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 3 - PsychoPY.mp4')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="selector.csv" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="code"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="2" valType="code"/>
+      <Param name="nReps" updates="None" val="3" valType="code"/>
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>

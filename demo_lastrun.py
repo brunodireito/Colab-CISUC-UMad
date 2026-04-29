@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2026.1.0),
-    on Mon Apr 27 10:49:41 2026
+This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
+    on abril 28, 2026, at 16:01
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -38,7 +38,7 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2026.1.0'
+psychopyVersion = '2026.1.3'
 expName = 'demo'  # from the Builder filename that created this script
 expVersion = ''
 # a list of functions to run when the experiment ends (starts off blank)
@@ -132,7 +132,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/brunomiguel/Documents/Psychopy/demo_lastrun.py',
+        originPath='C:\\Users\\guilh\\Documents\\GitHub\\Colab-CISUC-UMad\\demo_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )

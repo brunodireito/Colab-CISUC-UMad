@@ -117,7 +117,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Nesta tarefa, irá observar pequenos vídeos de situações de jogo.&amp;#10;&amp;#10;Após cada vídeo, surgirá uma imagem congelada do lance e terá de tomar uma decisão com base na informação apresentada no ecrã.&amp;#10;Responda o mais rapidamente e corretamente possível, utilizando as teclas indicadas. Prima a tecla correspondente à opção apresentada no ecrã (A, B, C, D).&amp;#10;&amp;#10;Entre ensaios, será apresentada uma cruz de fixação ao centro do ecrã; durante esse período, deverá manter o olhar fixo no centro e evitar movimentos desnecessários.&amp;#10;&amp;#10;Antes do início, haverá um breve período de preparação.&amp;#10;&amp;#10;Quando estiver pronto, prima a barra de espaço para começar.&amp;#10;&amp;#10;" valType="str" updates="constant" name="text"/>
+        <Param val="Nesta tarefa, irá observar pequenos vídeos de situações de jogo.&amp;#10;Após cada vídeo, surgirá uma imagem congelada do lance e deverá tomar uma decisão com base no que vê no ecrã.&amp;#10;Responda o mais rapidamente e corretamente possível, usando as teclas indicadas (A, B, C ou D).&amp;#10;Entre ensaios, aparecerá uma cruz de fixação ao centro do ecrã. Durante esse período, mantenha o olhar no centro.&amp;#10;Antes de começar, haverá um breve período de preparação.&amp;#10;Quando estiver pronto, prima a barra de espaço para iniciar.&amp;#10;" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -352,12 +352,12 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_resp" plugin="None">
-        <Param val="'a', 'b', 'c', 'd'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="'a', 'b', 'c', 'd' " valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="$corrAns" valType="str" updates="constant" name="correctAns"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="True" valType="bool" updates="constant" name="discard previous"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="key_resp" valType="code" updates="None" name="name"/>
         <Param val="press" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
@@ -366,8 +366,8 @@
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="6" valType="code" updates="constant" name="stopVal"/>
-        <Param val="last key" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="first key" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
     </Routine>

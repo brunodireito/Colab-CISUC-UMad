@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on abril 30, 2026, at 00:23
+    on junho 26, 2026, at 12:12
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -378,7 +378,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "Preparation" ---
     instrucao_geral = visual.TextStim(win=win, name='instrucao_geral',
-        text='Nesta tarefa, irá observar pequenos vídeos de situações de jogo.\n\nApós cada vídeo, surgirá uma imagem congelada do lance e terá de tomar uma decisão com base na informação apresentada no ecrã.\nResponda o mais rapidamente e corretamente possível, utilizando as teclas indicadas. Prima a tecla correspondente à opção apresentada no ecrã (A, B, C, D).\n\nEntre ensaios, será apresentada uma cruz de fixação ao centro do ecrã; durante esse período, deverá manter o olhar fixo no centro e evitar movimentos desnecessários.\n\nAntes do início, haverá um breve período de preparação.\n\nQuando estiver pronto, prima a barra de espaço para começar.\n\n',
+        text='Nesta tarefa, irá observar pequenos vídeos de situações de jogo.\n Após cada vídeo, surgirá uma imagem congelada do lance e deverá tomar uma decisão com base no que vê no ecrã.\n\n\n\nResponda o mais rapidamente e corretamente possível, usando as teclas indicadas (A, B, C ou D).\n\nEntre ensaios, aparecerá uma cruz de fixação ao centro do ecrã. Durante esse período, mantenha o olhar no centro.\n\n\n\nAntes de começar, haverá um breve período de preparação.\n\nQuando estiver pronto, prima a barra de espaço para iniciar.\n',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -1335,11 +1335,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 theseKeys = key_resp.getKeys(keyList=['a', 'b', 'c', 'd'], ignoreKeys=["escape"], waitRelease=False)
                 _key_resp_allKeys.extend(theseKeys)
                 if len(_key_resp_allKeys):
-                    key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
-                    key_resp.rt = _key_resp_allKeys[-1].rt
-                    key_resp.duration = _key_resp_allKeys[-1].duration
-                    # a response ends the routine
-                    continueRoutine = False
+                    key_resp.keys = _key_resp_allKeys[0].name  # just the first key pressed
+                    key_resp.rt = _key_resp_allKeys[0].rt
+                    key_resp.duration = _key_resp_allKeys[0].duration
+                    # was this correct?
+                    if (key_resp.keys == str(corrAns)) or (key_resp.keys == corrAns):
+                        key_resp.corr = 1
+                    else:
+                        key_resp.corr = 0
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1386,7 +1389,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # check responses
         if key_resp.keys in ['', [], None]:  # No response was made
             key_resp.keys = None
+            # was no response the correct answer?!
+            if str(corrAns).lower() == 'none':
+               key_resp.corr = 1;  # correct non-response
+            else:
+               key_resp.corr = 0;  # failed to respond (incorrectly)
+        # store data for trials (TrialHandler)
         trials.addData('key_resp.keys',key_resp.keys)
+        trials.addData('key_resp.corr', key_resp.corr)
         if key_resp.keys != None:  # we had a response
             trials.addData('key_resp.rt', key_resp.rt)
             trials.addData('key_resp.duration', key_resp.duration)

@@ -144,8 +144,8 @@
       <CodeComponent name="lsl_setup" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="from pylsl import StreamInfo, StreamOutlet&amp;#10;&amp;#10;lsl_info = StreamInfo('PsychoPyMarkers', 'Markers', 1, 0, 'string', 'psychopy_marker_stream')&amp;#10;outlet = StreamOutlet(lsl_info)" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="import {StreamInfo, StreamOutlet} from 'pylsl';&amp;#10;lsl_info = new StreamInfo(&quot;PsychoPyMarkers&quot;, &quot;Markers&quot;, 1, 0, &quot;string&quot;, &quot;psychopy_marker_stream&quot;);&amp;#10;outlet = new StreamOutlet(lsl_info);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="from pylsl import StreamInfo, StreamOutlet&amp;#10;&amp;#10;info = StreamInfo(name='Trigger', type='Markers', channel_count=1, channel_format='int32', source_id='Example')&amp;#10;outlet = StreamOutlet(info)" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="import {StreamInfo, StreamOutlet} from 'pylsl';&amp;#10;info = new StreamInfo({&quot;name&quot;: &quot;Trigger&quot;, &quot;type&quot;: &quot;Markers&quot;, &quot;channel_count&quot;: 1, &quot;channel_format&quot;: &quot;int32&quot;, &quot;source_id&quot;: &quot;Example&quot;});&amp;#10;outlet = new StreamOutlet(info);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -278,13 +278,13 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
-      <CodeComponent name="baseline_on" plugin="None">
+      <CodeComponent name="var_100" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, [&quot;baseline_pre_on&quot;]);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="win.callOnFlip(outlet.push_sample, ['baseline_pre_on'])" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, {&quot;x&quot;: [100]});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="win.callOnFlip(outlet.push_sample, x=[100])" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -293,7 +293,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="baseline_on" valType="code" updates="None" name="name"/>
+        <Param val="var_100" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="Video">
@@ -340,13 +340,13 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1" valType="num" updates="None" name="volume"/>
       </MovieComponent>
-      <CodeComponent name="video_on" plugin="None">
+      <CodeComponent name="var_120" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, [&quot;video_on&quot;]);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="win.callOnFlip(outlet.push_sample, ['video_on'])" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, {&quot;x&quot;: [120]});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="win.callOnFlip(outlet.push_sample, x=[120])" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -355,7 +355,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="video_on" valType="code" updates="None" name="name"/>
+        <Param val="var_120" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="Decision">
@@ -408,7 +408,7 @@
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="True" valType="bool" updates="constant" name="discard previous"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="key_resp" valType="code" updates="None" name="name"/>
         <Param val="press" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
@@ -421,22 +421,22 @@
         <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
-      <CodeComponent name="decision_on" plugin="None">
+      <CodeComponent name="var_130" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, [&quot;decision_on&quot;]);&amp;#10;response_sent = false;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="win.callOnFlip(outlet.push_sample, ['decision_on'])&amp;#10;response_sent = False" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, {&quot;x&quot;: [130]});&amp;#10;response_sent = false;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="win.callOnFlip(outlet.push_sample, x=[130])&amp;#10;response_sent = False" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="if key_resp.keys is not None and not response_sent:&amp;#10;    outlet.push_sample([f'resp_{key_resp.keys}'])&amp;#10;    response_sent = True" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="if (((key_resp.keys !== null) &amp;&amp; (! response_sent))) {&amp;#10;    outlet.push_sample([`resp_${key_resp.keys}`]);&amp;#10;    response_sent = true;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="if key_resp.keys is not None and not response_sent:&amp;#10;    if key_resp.keys == 'a':&amp;#10;        outlet.push_sample(x=[140])&amp;#10;    elif key_resp.keys == 'b':&amp;#10;        outlet.push_sample(x=[141])&amp;#10;    elif key_resp.keys == 'c':&amp;#10;        outlet.push_sample(x=[142])&amp;#10;    elif key_resp.keys == 'd':&amp;#10;        outlet.push_sample(x=[143])&amp;#10;    response_sent = True" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="if (((key_resp.keys !== null) &amp;&amp; (! response_sent))) {&amp;#10;    if ((key_resp.keys === &quot;a&quot;)) {&amp;#10;        outlet.push_sample({&quot;x&quot;: [140]});&amp;#10;    } else {&amp;#10;        if ((key_resp.keys === &quot;b&quot;)) {&amp;#10;            outlet.push_sample({&quot;x&quot;: [141]});&amp;#10;        } else {&amp;#10;            if ((key_resp.keys === &quot;c&quot;)) {&amp;#10;                outlet.push_sample({&quot;x&quot;: [142]});&amp;#10;            } else {&amp;#10;                if ((key_resp.keys === &quot;d&quot;)) {&amp;#10;                    outlet.push_sample({&quot;x&quot;: [143]});&amp;#10;                }&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    response_sent = true;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="decision_on" valType="code" updates="None" name="name"/>
+        <Param val="var_130" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="fixation_jitter">
@@ -483,13 +483,13 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
-      <CodeComponent name="jitter_on" plugin="None">
+      <CodeComponent name="var_110" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, [&quot;jitter_on&quot;]);&amp;#10;jitter_dur = util.randint(6, 10);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="win.callOnFlip(outlet.push_sample, ['jitter_on'])&amp;#10;jitter_dur = randint(6, 10)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, {&quot;x&quot;: [110]});&amp;#10;jitter_dur = util.randint(6, 10);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="win.callOnFlip(outlet.push_sample, x=[110])&amp;#10;jitter_dur = randint(6, 10)" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -498,7 +498,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="jitter_on" valType="code" updates="None" name="name"/>
+        <Param val="var_110" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="fixation_post">
@@ -545,13 +545,13 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
-      <CodeComponent name="code" plugin="None">
+      <CodeComponent name="var_150" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, [&quot;fixpost_on&quot;]);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="win.callOnFlip(outlet.push_sample, ['fixpost_on'])" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, {&quot;x&quot;: [150]});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="win.callOnFlip(outlet.push_sample, x=[150])" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -560,7 +560,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="code" valType="code" updates="None" name="name"/>
+        <Param val="var_150" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="Fixation2_post">
@@ -607,13 +607,13 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
-      <CodeComponent name="baseline_post_on" plugin="None">
+      <CodeComponent name="var_160" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, [&quot;baseline_post_on&quot;]);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="win.callOnFlip(outlet.push_sample, ['baseline_post_on'])" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="psychoJS.window.callOnFlip(outlet.push_sample, {&quot;x&quot;: [160]});&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="win.callOnFlip(outlet.push_sample, x=[160])" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -622,7 +622,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="baseline_post_on" valType="code" updates="None" name="name"/>
+        <Param val="var_160" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
   </Routines>

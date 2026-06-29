@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on junho 26, 2026, at 16:58
+    on junho 29, 2026, at 12:30
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -388,8 +388,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Experiment' code from lsl_setup
     from pylsl import StreamInfo, StreamOutlet
     
-    lsl_info = StreamInfo('PsychoPyMarkers', 'Markers', 1, 0, 'string', 'psychopy_marker_stream')
-    outlet = StreamOutlet(lsl_info)
+    info = StreamInfo(name='Trigger', type='Markers', channel_count=1, channel_format='int32', source_id='Example')
+    outlet = StreamOutlet(info)
     
     # --- Initialize components for Routine "Fixation" ---
     baseline_test = visual.TextStim(win=win, name='baseline_test',
@@ -430,7 +430,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "fixation_jitter" ---
     fix_trial = visual.TextStim(win=win, name='fix_trial',
-        text='+',
+        text='',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=1.0, 
@@ -659,8 +659,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     Fixation.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
-    # Run 'Begin Routine' code from baseline_on
-    win.callOnFlip(outlet.push_sample, ['baseline_pre_on'])
+    # Run 'Begin Routine' code from var_100
+    win.callOnFlip(outlet.push_sample, x=[100])
     # store start times for Fixation
     Fixation.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     Fixation.tStart = globalClock.getTime(format='float')
@@ -993,8 +993,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         fixation_jitter.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
-        # Run 'Begin Routine' code from jitter_on
-        win.callOnFlip(outlet.push_sample, ['jitter_on'])
+        fix_trial.setText('+')
+        # Run 'Begin Routine' code from var_110
+        win.callOnFlip(outlet.push_sample, x=[110])
+        jitter_dur = randint(6, 10)
         # store start times for fixation_jitter
         fixation_jitter.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         fixation_jitter.tStart = globalClock.getTime(format='float')
@@ -1018,7 +1020,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Run Routine "fixation_jitter" ---
         thisExp.currentRoutine = fixation_jitter
         fixation_jitter.forceEnded = routineForceEnded = not continueRoutine
-        while continueRoutine and routineTimer.getTime() < 8.0:
+        while continueRoutine:
             # if trial has changed, end Routine now
             if hasattr(thisTrial, 'status') and thisTrial.status == STOPPING:
                 continueRoutine = False
@@ -1056,7 +1058,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # if fix_trial is stopping this frame...
             if fix_trial.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > fix_trial.tStartRefresh + 1.0-frameTolerance:
+                if tThisFlipGlobal > fix_trial.tStartRefresh + jitter_dur-frameTolerance:
                     # keep track of stop time/frame for later
                     fix_trial.tStop = t  # not accounting for scr refresh
                     fix_trial.tStopRefresh = tThisFlipGlobal  # on global time
@@ -1109,13 +1111,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         fixation_jitter.tStop = globalClock.getTime(format='float')
         fixation_jitter.tStopRefresh = tThisFlipGlobal
         thisExp.addData('fixation_jitter.stopped', fixation_jitter.tStop)
-        # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-        if fixation_jitter.maxDurationReached:
-            routineTimer.addTime(-fixation_jitter.maxDuration)
-        elif fixation_jitter.forceEnded:
-            routineTimer.reset()
-        else:
-            routineTimer.addTime(-8.000000)
+        # the Routine "fixation_jitter" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
         
         # --- Prepare to start Routine "Video" ---
         # create an object to store info about Routine Video
@@ -1127,8 +1124,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         movie.setMovie(videos)
-        # Run 'Begin Routine' code from video_on
-        win.callOnFlip(outlet.push_sample, ['video_on'])
+        # Run 'Begin Routine' code from var_120
+        win.callOnFlip(outlet.push_sample, x=[120])
         # store start times for Video
         Video.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         Video.tStart = globalClock.getTime(format='float')
@@ -1252,8 +1249,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         key_resp.keys = []
         key_resp.rt = []
         _key_resp_allKeys = []
-        # Run 'Begin Routine' code from decision_on
-        win.callOnFlip(outlet.push_sample, ['decision_on'])
+        # Run 'Begin Routine' code from var_130
+        win.callOnFlip(outlet.push_sample, x=[130])
         response_sent = False
         # store start times for Decision
         Decision.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
@@ -1357,9 +1354,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         key_resp.corr = 1
                     else:
                         key_resp.corr = 0
-            # Run 'Each Frame' code from decision_on
+                    # a response ends the routine
+                    continueRoutine = False
+            # Run 'Each Frame' code from var_130
             if key_resp.keys is not None and not response_sent:
-                outlet.push_sample([f'resp_{key_resp.keys}'])
+                if key_resp.keys == 'a':
+                    outlet.push_sample(x=[140])
+                elif key_resp.keys == 'b':
+                    outlet.push_sample(x=[141])
+                elif key_resp.keys == 'c':
+                    outlet.push_sample(x=[142])
+                elif key_resp.keys == 'd':
+                    outlet.push_sample(x=[143])
                 response_sent = True
             
             # check for quit (typically the Esc key)
@@ -1430,8 +1436,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         fixation_post.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
-        # Run 'Begin Routine' code from code
-        win.callOnFlip(outlet.push_sample, ['fixpost_on'])
+        # Run 'Begin Routine' code from var_150
+        win.callOnFlip(outlet.push_sample, x=[150])
         # store start times for fixation_post
         fixation_post.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         fixation_post.tStart = globalClock.getTime(format='float')
@@ -1493,7 +1499,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # if fix_cross_post is stopping this frame...
             if fix_cross_post.status == STARTED:
                 # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > fix_cross_post.tStartRefresh + 1.0-frameTolerance:
+                if tThisFlipGlobal > fix_cross_post.tStartRefresh + 2.5-frameTolerance:
                     # keep track of stop time/frame for later
                     fix_cross_post.tStop = t  # not accounting for scr refresh
                     fix_cross_post.tStopRefresh = tThisFlipGlobal  # on global time
@@ -1584,8 +1590,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     Fixation2_post.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
-    # Run 'Begin Routine' code from baseline_post_on
-    win.callOnFlip(outlet.push_sample, ['baseline_post_on'])
+    # Run 'Begin Routine' code from var_160
+    win.callOnFlip(outlet.push_sample, x=[160])
     # store start times for Fixation2_post
     Fixation2_post.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     Fixation2_post.tStart = globalClock.getTime(format='float')

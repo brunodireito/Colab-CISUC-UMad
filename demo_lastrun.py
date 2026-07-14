@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on junho 29, 2026, at 12:30
+    on julho 14, 2026, at 11:32
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -468,7 +468,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "Fixation2_post" ---
     baseline_post = visual.TextStim(win=win, name='baseline_post',
-        text=None,
+        text='+',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=1.0, 

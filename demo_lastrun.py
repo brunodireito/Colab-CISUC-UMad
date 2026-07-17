@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on julho 15, 2026, at 13:22
+This experiment was created using PsychoPy3 Experiment Builder (v2026.1.0),
+    on Fri Jul 17 16:00:54 2026
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -38,7 +38,7 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2026.1.3'
+psychopyVersion = '2026.1.0'
 expName = 'demo'  # from the Builder filename that created this script
 expVersion = ''
 # a list of functions to run when the experiment ends (starts off blank)
@@ -132,7 +132,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\Laboratorio\\Documents\\GitHub\\Colab-CISUC-UMad\\demo_lastrun.py',
+        originPath='/Users/brunomiguel/Documents/GitHub/Colab-CISUC-UMad/demo_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -390,6 +390,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     info = StreamInfo(name='Trigger', type='Markers', channel_count=1, channel_format='int32', source_id='Example')
     outlet = StreamOutlet(info)
+    # Run 'Begin Experiment' code from code
+    condsFile = f"videosLinks_run{expInfo['session']}.csv"
     
     # --- Initialize components for Routine "Fixation" ---
     baseline_test = visual.TextStim(win=win, name='baseline_test',
@@ -956,7 +958,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=data.importConditions('selector.csv'), 
+        trialList=data.importConditions(condsFile), 
         seed=None, 
         isTrials=True, 
     )

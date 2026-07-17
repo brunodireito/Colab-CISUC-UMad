@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="2026.1.3">
+<PsychoPy2experiment encoding="utf-8" version="2026.1.0">
   <Settings>
     <Param val="ptb" valType="str" updates="None" name="Audio lib"/>
     <Param val="" valType="str" updates="None" name="Completed URL"/>
@@ -157,6 +157,23 @@
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="lsl_setup" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+      <CodeComponent name="code" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="condsFile = f&quot;videosLinks_run{expInfo['session']}.csv&quot;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="condsFile = `videosLinks_run${expInfo[&quot;session&quot;]}.csv`;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="Cues">
@@ -633,7 +650,7 @@
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('videos', './resources/videos/Clip 1 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 2 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 3 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 4 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 5 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 6 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 7 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 8 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 9 - PsychoPY.mp4')]), OrderedDict([('videos', './resources/videos/Clip 10 - PsychoPY.mp4')])]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="selector.csv" valType="file"/>
+      <Param name="conditionsFile" updates="None" val="$condsFile" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="code"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>

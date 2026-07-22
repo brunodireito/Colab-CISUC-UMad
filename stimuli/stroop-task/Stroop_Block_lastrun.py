@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on julho 14, 2026, at 15:48
+    on julho 22, 2026, at 15:47
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -131,7 +131,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\guilh\\Desktop\\Pen NIRSPORT 2\\Experimental Paradigms\\Stroop\\Stroop_Block_lastrun.py',
+        originPath='C:\\Users\\Laboratorio\\Documents\\GitHub\\Colab-CISUC-UMad\\stimuli\\stroop-task\\Stroop_Block_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )

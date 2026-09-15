@@ -1,0 +1,11 @@
+Ficheiros NIRS:
+sub-004_ses-01_tk-dm_run-1_nirs_004
+sub-004_ses-01_tk-stroop_run-1_nirs_004
+sub-004_ses-01_tk-dm_run-2_nirs_004
+sub-004_ses-01_tk-stroop_run-2_nirs_004
+
+Ficheiros PSYCHOPY:
+sub-004_ses-01_tk-dm_run-1_psychopy_004
+sub-004_ses-01_tk-stroop_run-1_psychopy_004
+sub-004_ses-01_tk-dm_run-2_psychopy_004
+sub-004_ses-01_tk-stroop_run-2_psychopy_004
